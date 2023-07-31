@@ -1,0 +1,58 @@
+<%
+=begin%>
+ <head>
+<script>
+  function hello(){
+    console.log("hi");
+   
+    // alert("Hello User!");
+
+    const a = Math.floor(Math.random()*10);
+    if(a<5){
+        document.getElementById("one").style.background="aqua";
+    }
+    else{
+        document.getElementById("one").style.background="red";
+    } 
+    console.log("completed");
+}
+hello();
+</script>
+</head> 
+<%
+=end%>
+<body style="background:rgb(11, 25, 69)">
+
+<p id="notice"><%= notice %></p>
+
+<h1 style="color:white">Tasks</h1>
+
+<table border=2 class="col-12 table-bordered" style="color:white">
+  <thead id="two">
+    <tr>
+      <th>Tname</th>
+      <th>Tstatus</th>
+      <th>Is active</th>
+      <th colspan="3" bgcolor="black">Operations</th>
+    </tr>
+  </thead>
+
+  <tbody class="" id="one">
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.tname %></td>
+        <td><%= task.tstatus %></td>
+        <td><%= task.is_active %></td>
+        <td bgcolor="lightgreen"><%= link_to 'Show', task %></td>
+        <td bgcolor="yellow"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td bgcolor="orange"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Tast', new_task_path, class: 'btn btn-primary', style: 'color:red' %>
+</body>

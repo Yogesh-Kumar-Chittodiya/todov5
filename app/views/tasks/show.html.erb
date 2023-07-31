@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p style="color:red">
+  <strong>Tname:</strong>
+  <%= @task.tname %>
+</p>
+
+<p style="color:green">
+  <strong>Tstatus:</strong>
+  <%= @task.tstatus %>
+</p>
+
+<p style="color:blue">
+  <strong>Is active:</strong>
+  <%= @task.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
